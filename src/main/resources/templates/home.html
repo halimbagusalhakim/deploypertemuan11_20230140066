@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Profile</title>
+    <style>
+        /* Menggunakan font profesional, bersih, dan netral */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Background diubah menjadi gradasi pink pastel yang lembut */
+            background: linear-gradient(135deg, #fff5f6 0%, #ffe3e7 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Container utama: Kartu profile yang elegan dan elevated */
+        .profile-card {
+            background: #ffffff; /* Putih bersih */
+            padding: 40px;
+            border-radius: 12px; /* Lengkungan modern yang tidak terlalu bulat */
+            box-shadow: 0 10px 15px -3px rgba(224, 148, 162, 0.15), 0 4px 6px -2px rgba(224, 148, 162, 0.05); /* Shadow halus bernuansa pink */
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid #fff0f2; /* Border sangat tipis bernuansa pink soft */
+        }
+
+        /* Judul tambahan: Rose-Charcoal yang kuat dan profesional */
+        .profile-card h2 {
+            color: #4d3237; /* Warna rose gelap yang elegan, bukan hitam kaku */
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: 800; /* Tebal dan *bold* */
+            letter-spacing: -0.5px; /* Sedikit rapat ala desain modern */
+            margin-top: 0;
+        }
+
+        /* Baris informasi data (Nama dan Alamat) */
+        .profile-card p {
+            font-size: 14px;
+            color: #8c7074; /* Label abu-abu dengan rona rose lembut */
+            font-weight: 500;
+            margin: 12px 0;
+            padding: 16px 20px;
+            background: #fffafb; /* Latar belakang data putih-pink super soft */
+            border-radius: 8px;
+            border: 1px solid #f5e1e4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Styling isi data asli dari Thymeleaf: Pink Rose yang cerah dan bersih */
+        .profile-card span {
+            color: #c94a6d; /* Pink Rose Tua */
+            font-weight: 700;
+            font-size: 15px;
+            background: #ffe8ec; /* Background pink muda untuk highlight data */
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+
+        /* Styling tombol Logout: Solid Pink Gradient */
+        .profile-card a {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 30px;
+            /* Gradient Pink yang fresh dan estetik */
+            background: linear-gradient(135deg, #ff7b93 0%, #e8526f 100%);
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(232, 82, 111, 0.3);
+            transition: all 0.2s ease;
+            letter-spacing: 0.2px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Efek hover tombol: sedikit lebih gelap */
+        .profile-card a:hover {
+            box-shadow: 0 10px 15px -3px rgba(232, 82, 111, 0.4);
+            transform: translateY(-1px); /* Efek angkat tipis */
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-card">
+    <h2>Account Profile</h2>
+
+    <p>
+        Username:
+        <span th:text="${user.username}"></span>
+    </p>
+
+    <p>
+        Nama:
+        <span th:text="${profile.nama}"></span>
+    </p>
+
+    <p>
+        Alamat:
+        <span th:text="${profile.alamat}"></span>
+    </p>
+
+    <a th:href="@{/logout}">
+        Logout
+    </a>
+</div>
+
+</body>
+</html>
