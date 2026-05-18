@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        /* Konsisten dengan font dan background dashboard */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Card form disamakan dengan profile-card */
+        form {
+            background: #1e293b;
+            padding: 40px 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+            width: 100%;
+            max-width: 320px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        form h2 {
+            color: #f8fafc;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        /* Input styling gelap */
+        input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #334155;
+            border-radius: 8px;
+            background: #0f172a;
+            font-size: 14px;
+            color: #f8fafc;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        /* Efek glow biru saat mengetik */
+        input:focus {
+            border-color: #3b82f6;
+            background: #0f172a;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.25);
+        }
+
+        input::placeholder {
+            color: #64748b;
+        }
+
+        /* Tombol gradient biru yang sama dengan tombol logout */
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+            color: white;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .register-box {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 14px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Link register berwarna cerah */
+        a {
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<form th:action="@{/login}" method="post">
+    <h2>Welcome Back </h2>
+
+    <input type="text"
+           name="username"
+           placeholder="Username">
+
+    <input type="password"
+           name="password"
+           placeholder="Password">
+
+    <button type="submit">
+        Login
+    </button>
+
+    <div class="register-box">
+        <p>Belum punya akun?</p>
+        <a th:href="@{/register}">
+            Register disini
+        </a>
+    </div>
+</form>
+
+</body>
+</html>
